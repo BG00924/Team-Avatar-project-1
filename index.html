@@ -15,18 +15,50 @@
     <main >
         <div class="columns">
             <div class="column is-full">
-            ul
+
+                <div class="columns">
+                    
+                    <div class="column">
+                        <p>Search
+                        </p>
+                    </div>
+                    <div class="column">
+                        <input type="text" name="searchInput" id="search-Input" autofocus="true">
+                        </input>
+                    </div>
+                    <div class="column">
+                        <select name="platformtype">
+                            <option value="" disabled selected>pick a platform</option>
+                            <option value="pc">pc</option>
+                            <option value="playstation-4">ps4</option>
+                            <option value="xone">xbox</option>
+                            <option value="switch">switch</option>
+                        </select>
+                        <button type="submit" id="gamesubmit">submit</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="columns">
             <div class="column is-full">
-            ul
+                <div class="columns">
+                    
+                    <div class="column">
+                        <p>name:<span id="name"></span></p>
+                        <p>platform:<span id="platform"></span></p>
+                        <p>genre:<span id="genre"></span></p>
+                        <p>score:<span id="score"></span></p>
+                        <p>description:<span id="description"></span></p>
+                    </div>
+                    <img class="column" id="gameimage"></img>
+                </div>
             </div>
         </div>
         <div class="columns">
             <div class="column is-full">
-            ul
+            video
             </div>
+            <div id="youtube"></div>
         </div>
     </main>
 </body>
