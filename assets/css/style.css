@@ -1,0 +1,30 @@
+body {
+    min-height: 100vh;
+}
+
+.border-primary {
+    border: 5px solid black;
+}
+
+.border-secondary {
+    border: 3px solid black;
+}
+
+.border-tertiary {
+    border: 1px solid black;
+}
+
+.gap-primary {
+    margin: 0 3px 0 3px;
+}
+
+.button-height {
+    height: auto;
+}
+
+.youtube {
+    width: 560px;
+    height: 340px;
+}
+
+
