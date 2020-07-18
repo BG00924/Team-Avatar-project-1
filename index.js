@@ -43,13 +43,9 @@ function grabGame() {
     // this sets local storage with the key="platformdropdown" and value equal to the variable platformdropdown
 
 
-
-
-
-
 };
 
 
 
 
-
+// this is a bootstrap modal function
