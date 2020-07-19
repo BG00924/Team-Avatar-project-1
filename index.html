@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Game Search</title>
 </head>
+
 <body>
     <header class="border-primary has-background-link-light">
         <nav class="has-background-link-dark py-3">
@@ -26,16 +27,16 @@
                    
                     <input type="text" name="searchInput" id="search-Input" autofocus="true" class="column is-one-quarter gap-primary">
                     </input>
+                
                     
-                    
-                    <select name="platformtype" class="column is-one-quarter gap-primary">
-                        <option value="" disabled selected>Pick a platform</option>
+                    <select id="platform-dropdown" name="platformtype" class="column is-one-quarter gap-primary">
+                        <option value="empty" disabled selected>Pick a platform</option>
                         <option value="pc">PC</option>
                         <option value="playstation-4">PS4</option>
-                        <option value="xone">Xbox</option>
+                        <option value="xbox">Xbox</option>
                         <option value="switch">Switch</option>
                     </select>
-                    <button type="submit" id="gamesubmit" class="column is-1 gap-primary button is-link is-light button-height">Submit</button>
+                    <button type="submit" id="gamesubmit" onclick="grabGame()" class="column is-1 gap-primary button is-link is-light button-height">Submit</button>
                     
                 </div>
             </div>
@@ -77,6 +78,35 @@
     </main>
     <footer class="border-primary has-background-link-dark has-text-centered has-text-weight-bold is-size-4 has-text-light">
         Enjoy your game! 
+        <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+        </button>
+  
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
     </footer>
+<script src="./index.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>
