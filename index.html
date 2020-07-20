@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Game Search</title>
 </head>
+
 <body>
     <header class="border-primary has-background-link-light">
         <nav class="has-background-link-dark py-3">
@@ -14,21 +15,20 @@
         </nav>
     </header>
     <main class="has-background-link-light px-3">
+        <!--Search Bar-->
         <div class="columns border-primary my-3">
             <div class="column is-full">
-
                 <div class="columns py-3 has-background-link-dark">
-                    
+                    <!-- Search text -->
                     <div class="column is-one-fifth gap-primary">
                         <p class="is-size-4 has-text-weight-bold has-text-light">Search:
                         </p>
                     </div>
-                   
+                   <!-- Input for game name -->
                     <input type="text" name="searchInput" id="search-Input" autofocus="true" class="column is-one-quarter gap-primary">
                     </input>
-                    
-                    
-                    <select name="platformtype" class="column is-one-quarter gap-primary">
+                    <!-- Drop down menu for platform selection -->
+                    <select id="platform-dropdown" name="platformtype" class="column is-one-quarter gap-primary">
                         <option value="" disabled selected>Pick a platform</option>
                         <option value="pc">PC</option>
                         <option value="playstation-4">PS4</option>
@@ -36,37 +36,40 @@
                         <option value="switch">Switch</option>
                     </select>
                     <button type="submit" id="gamesubmit" class="column is-1 gap-primary button is-link is-light button-height">Submit</button>
-                    
                 </div>
             </div>
         </div>
+        <!-- Game information section -->
         <div class="columns border-primary my-3 has-background-link-dark">
             <div class="column is-full">
                 <div class="columns">
+                    <!-- Provides information about the game -->
                     <div class="column has-text-black">
-                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Name:<span id="name"></span></p>
-                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Platform:<span id="platform"></span></p>
-                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Genre:<span id="genre"></span></p>
-                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Score:<span id="score"></span></p>
-                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Description:<span id="description"></span></p>
+                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Name: <span id="name"></span></p>
+                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Platform: <span id="platform"></span></p>
+                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Genre: <span id="genre"></span></p>
+                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Score: <span id="score"></span></p>
+                        <p class="border-secondary my-2 has-background-link-light px-1 py-1">Description: <span id="description"></span></p>
                     </div>
+                    <!-- Game image -->
                     <img class="column border-secondary my-3 mr-1 has-background-link-light" id="gameimage"></img>
                 </div>
             </div>
         </div>
+        <!-- Game video section -->
         <div class="columns border-primary my-3 has-background-link-dark">
-            <div class="column is-full">
+            <div class="column is-full"> 
+                <!-- Video title sction -->
                 <div class="columns is-centered">
                     <div class="has-text-weight-bold has-text-black has-text-centered column border-secondary mx-2 my-2 is-half has-background-link-light">
                         Video
                     </div>
-                    
                 </div>
+                <!-- Game video -->
                 <div class="columns is-centered">
                     <div class="border-secondary column is-four-fifths mx-2 my-2 has-background-link-light"> 
                         <div class="columns is-centered">
-                            <div id="youtube" class="column youtube border-tertiary">
-
+                            <div id="youtube" class="column youtube border-tertiary is-centered">
                             </div>
                         </div>
                     </div>
@@ -77,6 +80,34 @@
     </main>
     <footer class="border-primary has-background-link-dark has-text-centered has-text-weight-bold is-size-4 has-text-light">
         Enjoy your game! 
+        <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+        </button>
+  
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
     </footer>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="./assets/js/index.js"></script>
 </body>
 </html>
