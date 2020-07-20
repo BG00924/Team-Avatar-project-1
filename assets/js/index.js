@@ -96,7 +96,6 @@ var searchSubmitHandler = function(event) {
 // End submit handler
 
 // Loads items saved to local storage
-
 var gamenamels = localStorage.getItem("Game Name");
 // console log variable gamenamels
 // console.log("gamenamels", gamenamels);
@@ -141,7 +140,4 @@ var platformls = localStorage.getItem("platformdropdown");
 
 // Event listeners
 searchInputBtn.addEventListener("click", searchSubmitHandler);
-//gapi.load("client", loadClient);
-//getVideo("overwatch");
 
-//getGameInfo("overwatch", "pc")
