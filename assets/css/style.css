@@ -30,6 +30,8 @@ body {
 .youtubeVid {
     width: 560px;
     height: 340px;
+    margin: 0 auto;
+    display: block;
 }
 
 
