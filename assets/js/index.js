@@ -140,6 +140,20 @@ var platformls = localStorage.getItem("platformdropdown");
 
 // };
 
+// bulma modal javascript 
+
+var refs = {
+    modalEdicion: {
+      open: function() { document.getElementById('modalEdicion').classList.add('is-active');
+      },
+      close:function() { document.getElementById('modalEdicion').classList.remove('is-active');
+                        
+      }
+    }
+  };
+
+
+  // bulma modal end
 
 // Event listeners
 searchInputBtn.addEventListener("click", searchSubmitHandler);
