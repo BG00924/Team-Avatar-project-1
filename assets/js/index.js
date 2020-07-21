@@ -30,24 +30,21 @@ var getGameInfo = function(game, platform) {
         }
         })
         .catch(err => {
-        console.log(err);
-        // $(".modal").addClass("is-active")
+	    console.log(err);
         });
 }
 // End Chicken Coop fetch
-
-// $(".modal-close").click(function() {
-//     $(".modal").removeClass("is-active")
-// })
 
 // Displays the information to the website
 var displayGameInfo = function (game, searchTerm) {
     nameEl.textContent = ""
     nameEl.textContent = game.result.title
     platformEl.textContent = ""
-    platformEl.textContent = game.result.alsoAvailableOn.join(", ")
-    // Conjoined multiple items from an array with ", "
-    genreEl.textContent = game.result.genre.join(", ")    
+    platformEl.textContent = platformDropdownEl.value
+    genreEl.textContent = ""
+    for (var i = 0; i < game.result.genre.length; i++) {
+        genreEl.textContent = game.result.genre[i]
+    }
     scoreEl.textContent = ""
     scoreEl.textContent = game.result.score
     descriptionEl.textContent = ""
