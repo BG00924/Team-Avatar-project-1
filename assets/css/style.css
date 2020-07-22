@@ -51,12 +51,12 @@ body {
     }
 
     .youtube {
-        width: 350px;
+        width: calc(100% - 1.5rem);
         min-height: 212px;
     }
 
     .youtubeVid {
-        width: 350px;
+        width: calc(100% - 1.5rem);
         height: 212px;
     }
 }
