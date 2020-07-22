@@ -1,3 +1,4 @@
+// Variables used to select specific elements
 var searchInputBtn = document.getElementById('gamesubmit')
 var searchInputEl = document.getElementById('search-Input')
 var platformDropdownEl = document.getElementById('platform-dropdown')
@@ -6,9 +7,9 @@ var platformEl = document.getElementById('platform')
 var genreEl = document.getElementById('genre')
 var scoreEl = document.getElementById('score')
 var descriptionEl = document.getElementById('description')
-//var platformDropdown = document.getElementById('platformtype')
 var gameImageEl = document.getElementById('gameimage')
 var youTubeEl = document.getElementById('youtube')
+
 
 
 // API fetch from Chicken Coop which provides the game information
@@ -21,39 +22,43 @@ var getGameInfo = function(game, platform) {
 	}
     })
         .then(response => {
-        //console.log(response);
         if (response.ok) {
             response.json().then(data => {
-                //console.log(data)
                 displayGameInfo(data, game, platform)
             })
         }
         })
         .catch(err => {
-        console.log(err);
-        // $(".modal").addClass("is-active")
+        $(".modal").addClass("is-active")
         });
 }
 // End Chicken Coop fetch
 
-// $(".modal-close").click(function() {
-//     $(".modal").removeClass("is-active")
-// })
-
 // Displays the information to the website
 var displayGameInfo = function (game, searchTerm) {
-    nameEl.textContent = ""
-    nameEl.textContent = game.result.title
-    platformEl.textContent = ""
-    platformEl.textContent = game.result.alsoAvailableOn.join(", ")
-    // Conjoined multiple items from an array with ", "
-    genreEl.textContent = game.result.genre.join(", ")    
-    scoreEl.textContent = ""
-    scoreEl.textContent = game.result.score
-    descriptionEl.textContent = ""
-    descriptionEl.textContent = game.result.description
-    gameImageEl.setAttribute("src", "")
-    gameImageEl.setAttribute("src", game.result.image)
+    if (game.result == "No result") {
+        nameEl.textContent = ""
+        platformEl.textContent = ""
+        genreEl.textContent = ""
+        descriptionEl.textContent = ""
+        gameImageEl.setAttribute("src", "")
+        $(".modal").addClass("is-active")
+    } else {
+        nameEl.textContent = ""
+        nameEl.textContent = game.result.title
+        platformEl.textContent = ""
+        // Cojoined multiple items from an array with ", "
+        platformEl.textContent = game.result.alsoAvailableOn.join(", ")
+        genreEl.textContent = ""
+        genreEl.textContent = game.result.genre.join(", ")    
+        scoreEl.textContent = ""
+        scoreEl.textContent = game.result.score
+        descriptionEl.textContent = ""
+        descriptionEl.textContent = game.result.description
+        gameImageEl.setAttribute("src", "")
+        gameImageEl.setAttribute("src", game.result.image)
+        getVideo(game.result.title)
+    }
 }
 // End display function
 
@@ -67,7 +72,6 @@ var getVideo = function(game) {
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
-                    //console.log(data)
                     youTubeEl.textContent=""
                     for (var i = 0; i < data.items.length; i++) {
                         var video = document.createElement("iframe")
@@ -80,42 +84,41 @@ var getVideo = function(game) {
                 })
             }
         })
+        .catch(err => {
+            $(".modal").addClass("is-active")
+        });
 }
 // End YouTube API
-
 
 // Function that handles what happens when game name and platform submitted
 var searchSubmitHandler = function(event) {
     event.preventDefault();
     var gameInput = searchInputEl.value.trim()
     var platformInput = platformDropdownEl.value.trim()
-    if (gameInput && platformInput)
+    if (gameInput && platformInput) {
         getGameInfo(gameInput, platformInput)
         searchInputEl.value = ""
-        //platformDropdownEl.value = ""
-        // grabGame();
-        getVideo(gameInput)
+        platformDropdownEl.value = ""
+    } else {
+        $(".modal").addClass("is-active");
+    }
 }
 // End submit handler
 
 // Loads items saved to local storage
-var gamenamels = localStorage.getItem("Game Name");
+// var gamenamels = localStorage.getItem("Game Name");
 // console log variable gamenamels
 // console.log("gamenamels", gamenamels);
 // set the element with id="name"
 // document.getElementById("name").innerHTML = gamenamels; 
-
-var platformls = localStorage.getItem("platformdropdown");
+// var platformls = localStorage.getItem("platformdropdown");
 // console log variable platformls
 // console.log("platformls", platformls);
 // set the element with id="platform"
 // document.getElementById("platform").innerHTML = platformls; 
-
 // get search input and console log it
 // put searchinput into #name
-
 // End load saved items
-
 // this function runs when it is called on click of the submit button in the index.html file
 // function grabGame() {
 //     // this variable is = to the value of the element with id="searchInput"
@@ -126,8 +129,6 @@ var platformls = localStorage.getItem("platformdropdown");
 //     // document.getElementById("name").innerHTML = searchInput;
 //     // this sets local storage with the key="Game Name" and value equal to the variable searchInput
 //     localStorage.setItem("Game Name", searchInput);
-
-
 //     var platformdropdown = platformEl.value.trim();
 //     // this variable is = to the value of the element with id="platform-dropdown"
 //     // console.log("platform-dropdown", platformdropdown);
@@ -141,7 +142,6 @@ var platformls = localStorage.getItem("platformdropdown");
 // };
 
 // bulma modal javascript 
-
 var refs = {
     modalEdicion: {
       open: function() { document.getElementById('modalEdicion').classList.add('is-active');
@@ -151,9 +151,7 @@ var refs = {
       }
     }
   };
-
-
-  // bulma modal end
+// bulma modal end
 
 // Event listeners
 searchInputBtn.addEventListener("click", searchSubmitHandler);
