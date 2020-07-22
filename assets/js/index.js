@@ -97,49 +97,34 @@ var searchSubmitHandler = function(event) {
     var platformInput = platformDropdownEl.value.trim()
     if (gameInput && platformInput) {
         getGameInfo(gameInput, platformInput)
-        searchInputEl.value = ""
-        platformDropdownEl.value = ""
+        // next two lines are for future updates
+        // searchInputEl.value = ""
+        // platformDropdownEl.value = ""
+        localStorage.setItem("game", gameInput);
+        localStorage.setItem("platform", platformInput);
+        
     } else {
         $(".modal").addClass("is-active");
     }
 }
-// End submit handler
+// end submit handler
 
-// Loads items saved to local storage
-// var gamenamels = localStorage.getItem("Game Name");
-// console log variable gamenamels
-// console.log("gamenamels", gamenamels);
-// set the element with id="name"
-// document.getElementById("name").innerHTML = gamenamels; 
-// var platformls = localStorage.getItem("platformdropdown");
-// console log variable platformls
-// console.log("platformls", platformls);
-// set the element with id="platform"
-// document.getElementById("platform").innerHTML = platformls; 
-// get search input and console log it
-// put searchinput into #name
-// End load saved items
-// this function runs when it is called on click of the submit button in the index.html file
-// function grabGame() {
-//     // this variable is = to the value of the element with id="searchInput"
-//     var searchInput = nameEl.value.trim();
-//     // console log variable searchInput
-//     // console.log("searchinupt", searchInput);
-//     // this sets the inner html of the element with id="name" to the variable searchInput
-//     // document.getElementById("name").innerHTML = searchInput;
-//     // this sets local storage with the key="Game Name" and value equal to the variable searchInput
-//     localStorage.setItem("Game Name", searchInput);
-//     var platformdropdown = platformEl.value.trim();
-//     // this variable is = to the value of the element with id="platform-dropdown"
-//     // console.log("platform-dropdown", platformdropdown);
-//     // console log variable platformdropdown
-//     //document.getElementById("platform").innerHTML = platformdropdown;
-//     // this sets the inner html of the element with id="platform" to the variable platformdropdown
-//     localStorage.setItem("platformdropdown", platformdropdown);
-//     // this sets local storage with the key="platformdropdown" and value equal to the variable platformdropdown
-
-
-// };
+// add persistence
+var renderLastGame = function(){
+    var game = localStorage.getItem("game")
+    var platform = localStorage.getItem("platform")
+    if (game && platform === null) {
+        searchInputEl.value = ""
+        platformDropdownEl.value = ""  
+        return;
+    }
+    else if (game && platform){
+    searchInputEl.value = game
+    platformDropdownEl.value = platform
+    getGameInfo(game, platform);
+     }
+}
+// adds persistence
 
 // bulma modal javascript 
 var refs = {
@@ -155,4 +140,4 @@ var refs = {
 
 // Event listeners
 searchInputBtn.addEventListener("click", searchSubmitHandler);
-
+renderLastGame();
