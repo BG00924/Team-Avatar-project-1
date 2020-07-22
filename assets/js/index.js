@@ -66,7 +66,7 @@ var displayGameInfo = function (game, searchTerm) {
 var getVideo = function(game) {
     var apiKey = "AIzaSyAjBBrljQ2PwEQWi6scibJRKN2xE-PT2wg"
     var maxResults = 5
-    var youTubeAPI = "https:www.googleapis.com/youtube/v3/search?key=" + apiKey 
+    var youTubeAPI = "https://www.googleapis.com/youtube/v3/search?key=" + apiKey 
         + "&type=video&part=snippet&maxResults=" + maxResults + "&q=" + game
     fetch(youTubeAPI)
         .then(function(response) {
